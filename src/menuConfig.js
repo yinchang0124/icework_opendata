@@ -8,20 +8,20 @@ const headerMenuConfig = [
     path: '/',
     icon: 'home',
   },
-  {
-    name: '反馈',
-    path: 'https://github.com/alibaba/ice',
-    external: true,
-    newWindow: true,
-    icon: 'message',
-  },
-  {
-    name: '帮助',
-    path: 'https://alibaba.github.io/ice',
-    external: true,
-    newWindow: true,
-    icon: 'bangzhu',
-  },
+  // {
+  //   name: '反馈',
+  //   path: 'https://github.com/alibaba/ice',
+  //   external: true,
+  //   newWindow: true,
+  //   icon: 'message',
+  // },
+  // {
+  //   name: '帮助',
+  //   path: 'https://alibaba.github.io/ice',
+  //   external: true,
+  //   newWindow: true,
+  //   icon: 'bangzhu',
+  // },
 ];
 
 const asideMenuConfig = [
@@ -50,11 +50,11 @@ const asideMenuConfig = [
     path: '/setting',
     icon: 'shezhi',
   },
-  {
-    name: 'detail',
-    path: '/detail',
-    icon: 'home',
-  },
+  // {
+  //   name: 'detail',
+  //   path: '/detail',
+  //   icon: 'home',
+  // },
 ];
 
 export { headerMenuConfig, asideMenuConfig };

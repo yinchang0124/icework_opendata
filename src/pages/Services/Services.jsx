@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ServiceCard from './components/ServiceCard';
-import ServiceHead from './components/ServiceHead';
+//import ServiceHead from './components/ServiceHead';
 
 export default class Services extends Component {
   static displayName = 'Services';
@@ -17,7 +17,7 @@ export default class Services extends Component {
   render() {
     return (
       <div>
-        <ServiceHead />
+        {/* <ServiceHead /> */}
         <ServiceCard />
       </div>
     );

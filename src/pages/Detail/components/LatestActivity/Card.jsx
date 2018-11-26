@@ -34,9 +34,9 @@ export default class Card extends Component {
                   );
                 })}
               </div> */}
-              <a href={link.href} style={styles.link}>
+              {/* <a href={link.href} style={styles.link}>
                 {link.text}
-              </a>
+              </a> */}
             </div>
             {this.props.content}
           </Col>

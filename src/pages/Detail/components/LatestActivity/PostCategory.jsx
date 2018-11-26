@@ -5,9 +5,8 @@ import { Tab, Button } from '@icedesign/base';
 function mockCentent() {
   return Array.from({ length: 1 }).map(() => {
     return {
-      title: '数据名称',
-      cover:
-        'https://img.alicdn.com/tfs/TB1sbkkXmBYBeNjy0FeXXbnmFXa-280-498.png',
+      title: '数据信息',
+      cover: require('./images/lock.jpg'),
       url: '#',
       detail: [
         {
@@ -16,10 +15,11 @@ function mockCentent() {
         },
         {
           label: '数据介绍',
-          desc: '本数据关于航空的关键实验参数',
+          desc: '本数据关于航空的关键实验参数本数据关于航空的关键实验参数本数据关于航空的关键实验参数本数据关于航空的关键实验参数',
         },
         {
-          
+          label: '价格',
+          desc: '￥5',
         }
       ],
     };
@@ -37,39 +37,9 @@ export default class PostCategory extends Component {
   render() {
     const tabs = [
       {
-        tab: '帖子',
+        tab: '详细信息',
         icon: require('./images/post.png'),
         key: 'home',
-        content: mockCentent(),
-      },
-      {
-        tab: '短视频',
-        icon: require('./images/video.png'),
-        key: 'doc',
-        content: mockCentent(),
-      },
-      {
-        tab: '搭配',
-        icon: require('./images/collect.png'),
-        key: 'collect',
-        content: mockCentent(),
-      },
-      {
-        tab: '单品',
-        icon: require('./images/item.png'),
-        key: 'item',
-        content: mockCentent(),
-      },
-      {
-        tab: '问答',
-        icon: require('./images/ask.png'),
-        key: 'ask',
-        content: mockCentent(),
-      },
-      {
-        tab: '转发',
-        icon: require('./images/fiy.png'),
-        key: 'fiy',
         content: mockCentent(),
       },
     ];
@@ -96,13 +66,15 @@ export default class PostCategory extends Component {
               }
             >
               <div style={styles.postCategoryList}>
+                <col xm = '6'></col>
+                <col xm = '6'></col>
                 {item.content.map((item) => {
                   return (
                     <div style={styles.postCategoryItem}>
                       <div style={styles.coverWrapper}>
                         <img
                           alt={item.title}
-                          style={{ width: 140, display: 'block' }}
+                          style={{ width: 300, display: 'block' }}
                           src={item.cover}
                         />
                       </div>

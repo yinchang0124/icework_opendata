@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LatestActivity from './components/LatestActivity';
-import PostCategory from './components/PostCategory/PostCategory';
+//import PostCategory from './components/PostCategory/PostCategory';
 
 export default class Detail extends Component {
   static displayName = 'Detail';
