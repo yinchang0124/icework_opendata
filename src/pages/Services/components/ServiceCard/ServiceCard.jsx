@@ -1,19 +1,9 @@
 import React, { Component } from 'react';
 import { Grid, Icon } from '@icedesign/base';
 import IceContainer from '@icedesign/container';
+import axios from "axios";
 
 const { Row, Col } = Grid;
-
-// MOCK 数据，实际业务按需进行替换
-const getData = () => {
-  return Array.from({ length: 12 }).map(() => {
-    return {
-      name: '服务名称',
-      desc: '这里是一段相关的服务简介，介绍产品的功能、特点',
-      tag: '精选',
-    };
-  });
-};
 
 export default class ServiceCard extends Component {
   static displayName = 'ServiceCard';
@@ -24,11 +14,27 @@ export default class ServiceCard extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      data:[]
+    };
+  }
+
+  componentDidMount() {
+    axios
+      .get('/mock/services.json')
+      .then((response) => {
+        console.log(response.data.data);
+        this.setState({
+          data: response.data.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      }); 
   }
 
   render() {
-    const mockData = getData();
+    const mockData = this.state.data;
     return (
       <Row wrap gutter="20">
         {mockData.map((item, index) => {

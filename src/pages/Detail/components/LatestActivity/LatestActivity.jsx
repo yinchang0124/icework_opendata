@@ -4,23 +4,6 @@ import Card from './Card';
 import PostCategory from './PostCategory';
 import axios from 'axios';
 
-
-const getData = () => {
-  return Array.from({ length: 10 }).map((item, index) => {
-    return {
-      name: `${index + 1}.造物节`,
-      num: parseInt(Math.random() * 1000),
-    };
-  });
-};
-
-componentWillMount(){
-  axios.get('/mock/services.json').then((response) =>{
-
-
-  });
-}
-
 export default class LatestActivity extends Component {
   static displayName = 'LatestActivity';
 
@@ -31,17 +14,26 @@ export default class LatestActivity extends Component {
   constructor(props){
     super(props);
     this.state={
-      date:'',
-      name:''
+      data:[]
     };
   }
 
-  getData(){
-
+  componentDidMount() {
+    axios
+      .get('/mock/grant_list.json')
+      .then((response) => {
+        console.log(response.data.data);
+        this.setState({
+          data: response.data.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      }); 
   }
 
   render() {
-    const dataSource = getData();
+    const dataSource = this.state.data;
     const columns = [
       {
         title: '时间',

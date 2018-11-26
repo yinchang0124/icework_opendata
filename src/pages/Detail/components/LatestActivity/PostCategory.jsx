@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from "axios"
 
 import { Tab, Button } from '@icedesign/base';
 
@@ -31,7 +32,23 @@ export default class PostCategory extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      data:[]
+    };
+  }
+
+  componentDidMount() {
+    axios
+      .get('/mock/detail.json')
+      .then((response) => {
+        console.log(response.data.data);
+        this.setState({
+          data: response.data.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      }); 
   }
 
   render() {
@@ -66,8 +83,6 @@ export default class PostCategory extends Component {
               }
             >
               <div style={styles.postCategoryList}>
-                <col xm = '6'></col>
-                <col xm = '6'></col>
                 {item.content.map((item) => {
                   return (
                     <div style={styles.postCategoryItem}>
