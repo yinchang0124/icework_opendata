@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Grid, Icon } from '@icedesign/base';
 import IceContainer from '@icedesign/container';
 import axios from "axios";
+import Detail from "../../../Detail/";
 
 const { Row, Col } = Grid;
 
@@ -33,6 +34,9 @@ export default class ServiceCard extends Component {
       }); 
   }
 
+  a=(index)=>{
+    window.location.href = '/#/detail?id=' + index
+  }
   render() {
     const mockData = this.state.data;
     return (
@@ -51,7 +55,9 @@ export default class ServiceCard extends Component {
                     <Icon type="office" size="small" style={styles.icon} />{' '}
                     文档帮助
                   </a> */}
-                  <a href="#/detail" style={styles.link}>
+                  <a onClick={()=>{
+                    this.a(index)
+                  }} style={styles.link}>
                     <Icon type="box" size="small" style={styles.icon} />
                     详细信息
                   </a>

@@ -3,47 +3,41 @@ import axios from "axios"
 
 import { Tab, Button } from '@icedesign/base';
 
-function mockCentent() {
-  return Array.from({ length: 1 }).map(() => {
-    return {
-      title: '数据信息',
-      cover: require('./images/lock.jpg'),
-      url: '#',
-      detail: [
-        {
-          label: '数据所有者',
-          desc: '北京航空航天大学',
-        },
-        {
-          label: '数据介绍',
-          desc: '本数据关于航空的关键实验参数本数据关于航空的关键实验参数本数据关于航空的关键实验参数本数据关于航空的关键实验参数',
-        },
-        {
-          label: '价格',
-          desc: '￥5',
-        }
-      ],
-    };
-  });
-}
-
 export default class PostCategory extends Component {
   static displayName = 'PostCategory';
 
   constructor(props) {
     super(props);
+    let result;
+    if (window.location.hash.indexOf("?")!=-1) {
+      result = window.location.hash.substr(window.location.hash.indexOf("=")).split("=")[1];
+   }
     this.state = {
-      data:[]
+      data:[],
+      result : result
     };
   }
 
-  componentDidMount() {
+  applygrant = () => {
+    if (confirm("您确定申请授权？")) {
+      alert("申请成功！请您耐心等待卖家授权！");
+    }
+  }
+
+  componentWillMount() {
+    console.log(typeof this.state.result)
+    let url = '';
+    switch(this.state.result){
+      case '0' : url= '/mock/detail.json'; break;
+      case '1': url= '/mock/detail1.json'; break;
+      default : break;
+    }
+    console.log(url)
     axios
-      .get('/mock/detail.json')
+      .get(url)
       .then((response) => {
-        console.log(response.data.data);
         this.setState({
-          data: response.data.data,
+          data: response.data.data === undefined ? ([]) : response.data.data,
         });
       })
       .catch((error) => {
@@ -57,9 +51,14 @@ export default class PostCategory extends Component {
         tab: '详细信息',
         icon: require('./images/post.png'),
         key: 'home',
-        content: mockCentent(),
+        content: [  
+          {
+            title: '数据信息',
+            cover: require('./images/lock.jpg'),
+            data :this.state.data}]
       },
     ];
+   
 
     return (
       <div>
@@ -96,7 +95,9 @@ export default class PostCategory extends Component {
                       <div style={styles.blockDetail}>
                         <h3 style={styles.blockTitle}>{item.title}</h3>
 
-                        {item.detail.map((desc) => {
+                        {
+                          item.data === undefined ? (''):(
+                          item.data.map((desc) => {
                           return (
                             <div style={styles.blockItem}>
                               <label style={styles.blockLable}>
@@ -108,12 +109,13 @@ export default class PostCategory extends Component {
                               />
                             </div>
                           );
-                        })}
+                        }))}
                         <Button
                           style={styles.blockBtn}
                           type="primary"
                           component="a"
                           href={item.url}
+                          onClick = {this.applygrant}
                         >
                           申请授权
                         </Button>

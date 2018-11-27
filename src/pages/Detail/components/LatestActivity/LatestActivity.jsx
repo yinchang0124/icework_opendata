@@ -13,14 +13,27 @@ export default class LatestActivity extends Component {
 
   constructor(props){
     super(props);
+    let result;
+    if (window.location.hash.indexOf("?")!=-1) {
+      result = window.location.hash.substr(window.location.hash.indexOf("=")).split("=")[1];
+   }
     this.state={
-      data:[]
+      data:[],
+      result : result
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
+    console.log(typeof this.state.result)
+    let url = '';
+    switch(this.state.result){
+      case '0' : url= '/mock/grant_list.json'; break;
+      case '1': url= '/mock/grant_list1.json'; break;
+      default : break;
+    }
+    console.log(url)
     axios
-      .get('/mock/grant_list.json')
+      .get(url)
       .then((response) => {
         console.log(response.data.data);
         this.setState({

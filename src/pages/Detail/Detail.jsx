@@ -4,7 +4,6 @@ import LatestActivity from './components/LatestActivity';
 
 export default class Detail extends Component {
   static displayName = 'Detail';
-
   constructor(props) {
     super(props);
     this.state = {};
