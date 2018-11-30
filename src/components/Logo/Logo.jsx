@@ -11,7 +11,7 @@ export default class Logo extends Component {
           alt="logo"
         />
         <Link to="/" style={styles.logoText}>
-          项目任务管理系统
+          数据交易所
         </Link>
       </div>
     );

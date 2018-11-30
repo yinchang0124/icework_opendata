@@ -8,6 +8,10 @@ import Document from './pages/Document';
 import Services from './pages/Services';
 import Member from './pages/Member';
 import Detail from './pages/Detail';
+import Seller from './pages/Seller';
+import RequestDetail from './pages/RequestDetail';
+import Customer from './pages/Customer';
+import Cusdetail from './pages/Cusdetail';
 import Setting from './pages/Setting';
 
 const routerConfig = [
@@ -16,21 +20,21 @@ const routerConfig = [
     layout: BasicLayout,
     component: Dashboard,
   },
-  {
-    path: '/document',
-    layout: BasicLayout,
-    component: Document,
-  },
+  // {
+  //   path: '/document',
+  //   layout: BasicLayout,
+  //   component: Document,
+  // },
   {
     path: '/services',
     layout: BasicLayout,
     component: Services,
   },
-  {
-    path: '/member',
-    layout: BasicLayout,
-    component: Member,
-  },
+  // {
+  //   path: '/member',
+  //   layout: BasicLayout,
+  //   component: Member,
+  // },
   {
     path: '/setting',
     layout: BasicLayout,
@@ -40,6 +44,26 @@ const routerConfig = [
     path: '/detail',
     layout: BasicLayout,
     component: Detail,
+  },
+  {
+    path: '/seller',
+    layout: BasicLayout,
+    component: Seller,
+  },
+  {
+    path: '/requestDetail',
+    layout: BasicLayout,
+    component: RequestDetail,
+  },
+  {
+    path: '/customer',
+    layout: BasicLayout,
+    component: Customer,
+  },
+  {
+    path: '/cusdetail',
+    layout: BasicLayout,
+    component: Cusdetail,
   },
 ];
 

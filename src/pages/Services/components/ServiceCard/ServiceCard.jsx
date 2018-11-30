@@ -37,6 +37,8 @@ export default class ServiceCard extends Component {
   a=(index)=>{
     window.location.href = '/#/detail?id=' + index
   }
+
+  
   render() {
     const mockData = this.state.data;
     return (
@@ -50,11 +52,7 @@ export default class ServiceCard extends Component {
                   <p style={styles.desc}>{item.desc}</p>
                   <div style={styles.tag}>{item.tag}</div>
                 </div>
-                <div style={styles.footer}>
-                  {/* <a href="#/detail" style={{ ...styles.link, ...styles.line }}>
-                    <Icon type="office" size="small" style={styles.icon} />{' '}
-                    文档帮助
-                  </a> */}
+                <div style={styles.footer}>                  
                   <a onClick={()=>{
                     this.a(index)
                   }} style={styles.link}>

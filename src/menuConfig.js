@@ -8,20 +8,6 @@ const headerMenuConfig = [
     path: '/',
     icon: 'home',
   },
-  // {
-  //   name: '反馈',
-  //   path: 'https://github.com/alibaba/ice',
-  //   external: true,
-  //   newWindow: true,
-  //   icon: 'message',
-  // },
-  // {
-  //   name: '帮助',
-  //   path: 'https://alibaba.github.io/ice',
-  //   external: true,
-  //   newWindow: true,
-  //   icon: 'bangzhu',
-  // },
 ];
 
 const asideMenuConfig = [
@@ -30,29 +16,44 @@ const asideMenuConfig = [
     path: '/',
     icon: 'home2',
   },
-  {
-    name: '文档',
-    path: '/document',
-    icon: 'copy',
-  },
+  // {
+  //   name: '文档',
+  //   path: '/document',
+  //   icon: 'copy',
+  // },
   {
     name: '服务',
     path: '/services',
     icon: 'cascades',
   },
-  {
-    name: '成员',
-    path: '/member',
-    icon: 'person',
-  },
-  {
-    name: '设置',
-    path: '/setting',
-    icon: 'shezhi',
-  },
+  // {
+  //   name: '成员',
+  //   path: '/member',
+  //   icon: 'person',
+  // },
+  // {
+  //   name: '设置',
+  //   path: '/setting',
+  //   icon: 'shezhi',
+  // },
   // {
   //   name: 'detail',
   //   path: '/detail',
+  //   icon: 'home',
+  // },
+  {
+    name: 'seller',
+    path: '/seller',
+    icon: 'home',
+  },
+  {
+    name: 'customer',
+    path: '/customer',
+    icon: 'home',
+  },
+  // {
+  //   name: 'cusdetail',
+  //   path: '/cusdetail',
   //   icon: 'home',
   // },
 ];
