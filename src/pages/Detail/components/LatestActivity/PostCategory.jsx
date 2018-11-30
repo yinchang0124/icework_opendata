@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import axios from "axios"
+//import Coin from "../../../../../";
+import Web3 from "web3";
+import truffleContract from "truffle-contract";
 
 import { Tab, Button } from '@icedesign/base';
 
@@ -25,14 +28,20 @@ export default class PostCategory extends Component {
   }
 
   componentWillMount() {
-    console.log(typeof this.state.result)
+    
+    if(typeof web3 !== 'undefined'){
+      web3 = new Web3(web3.currentProvider);
+    }else{
+      we3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
+    }
+    this.initContract();
+
     let url = '';
     switch(this.state.result){
       case '0' : url= '/mock/detail.json'; break;
       case '1': url= '/mock/detail1.json'; break;
       default : break;
     }
-    console.log(url)
     axios
       .get(url)
       .then((response) => {
